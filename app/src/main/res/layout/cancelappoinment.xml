@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="5dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:paddingBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/cancelAppoinmentLayReferenceNum"-->
+                <!--android:weightSum="3"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/cancelAppoinmentReference1"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="15dp"-->
+                    <!--android:padding="2dp"-->
+                    <!--android:typeface="monospace"-->
+                    <!--android:text="Reference No."-->
+                    <!--android:textColor="@color/black"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/cancelAppoinmentReference"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="15dp"-->
+                    <!--android:padding="2dp"-->
+                    <!--android:typeface="monospace"-->
+                    <!--android:text="Reference No."-->
+                    <!--android:textColor="@color/black"/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/cancelAppoinmentLayContact"-->
+                <!--android:layout_below="@+id/cancelAppoinmentLayReferenceNum"-->
+                <!--android:weightSum="3"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/cancelAppoinmentContact1"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="15dp"-->
+                    <!--android:padding="2dp"-->
+                    <!--android:typeface="monospace"-->
+                    <!--android:text="Contact"-->
+                    <!--android:textColor="@color/black"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/cancelAppoinmentContact"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="15dp"-->
+                    <!--android:padding="2dp"-->
+                    <!--android:typeface="monospace"-->
+                    <!--android:text="Contact"-->
+                    <!--android:textColor="@color/black"/>-->
+
+            <!--</LinearLayout>-->
+            <!--android:layout_below="@+id/cancelAppoinmentLayContact"-->
+
+            <LinearLayout
+                android:id="@+id/cancelAppoinmentLayDate"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentDate1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Date"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentDate"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Date"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cancelAppoinmentLayTime"
+                android:layout_below="@+id/cancelAppoinmentLayDate"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentTime1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Time"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentTime"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Time"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cancelAppoinmentLayPreferLab"
+                android:layout_below="@+id/cancelAppoinmentLayTime"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentPreferLab1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Prefered Lab."
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentPreferLab"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Prefered Lab."
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cancelAppoinmentLaystatus"
+                android:layout_below="@+id/cancelAppoinmentLayPreferLab"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentstatus1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Status"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/cancelAppoinmentstatus"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Status"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/cancelAppoinmentLayBtn"
+                android:layout_below="@+id/cancelAppoinmentLaystatus"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/cancelAppoinmentBtnCancel"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/btncornerorange"
+                    android:layout_height="30dp"
+                    android:textSize="15dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:typeface="monospace"
+                    android:text="cancel Appoinment"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    
+    
+</LinearLayout>

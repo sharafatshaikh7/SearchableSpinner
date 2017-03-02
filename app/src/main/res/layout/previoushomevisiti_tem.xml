@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistNameLay"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistName1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Name"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistName"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Name"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistDateLay"
+                android:layout_below="@+id/boohomevisitlistNameLay"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistDate1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Date"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistDate"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Date"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistTimeLay"
+                android:layout_below="@+id/boohomevisitlistDateLay"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistTime1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Time"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistTime"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Time"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistReferNumLay"
+                android:layout_below="@+id/boohomevisitlistTimeLay"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistReferNum1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Reference No."
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtbookhomevisitlistReferNum"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Reference No."
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistContactLay"
+                android:layout_below="@+id/boohomevisitlistReferNumLay"
+                android:weightSum="5"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/boohomevisitlistContact1"
+                    android:layout_weight="1.5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Contact :  "
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/boohomevisitlistContact"
+                    android:layout_weight="1.5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="contact"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/boohomevisitlistarea1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Area"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/boohomevisitlistare"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Area"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistAddressLay"
+                android:layout_below="@+id/boohomevisitlistContactLay"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/boohomevisitlistAddress1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="address"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/boohomevisitlistAddress"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="address"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistPreferLay"
+                android:layout_below="@+id/boohomevisitlistAddressLay"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/boohomevisitlistPrefer1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Prefered Lab"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/boohomevisitlistPrefer"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Prefered Lab"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistFileNameLay"
+                android:layout_below="@+id/boohomevisitlistPreferLay"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/boohomevisitlistFileName1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="File Name"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/boohomevisitlistFileName"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="File Name"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitliststatusLay"
+                android:layout_below="@+id/boohomevisitlistFileNameLay"
+                android:weightSum="4"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/boohomevisitliststatus1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Status"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/boohomevisitliststatus"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Status"
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:id="@+id/boohomevisitlistbtnbook"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/btncornerblue"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Submit"
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:id="@+id/boohomevisitlistbtncancel"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/btncornerorange"
+                    android:layout_height="30dp"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="cancel"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

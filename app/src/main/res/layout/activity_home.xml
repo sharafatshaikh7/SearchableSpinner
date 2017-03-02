@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="match_parent"
+    tools:context="com.mylabpatient.Home">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:layout_marginTop="5dp"
+       android:padding="5dp"
+       android:id="@+id/homeProfile">
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/homeProfileImage"
+           android:background="@drawable/imagebackgroundround"
+           android:src="@drawable/profile2"/>
+
+       <TextView
+           android:id="@+id/txtProfilePatientName"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:textSize="20dp" android:layout_marginLeft="20dp"
+           android:typeface="monospace"
+           android:text="PatientProfileName"
+           android:gravity="center_vertical"
+           android:textColor="#000000"
+           android:layout_toRightOf="@+id/homeProfileImage"/>
+   </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/homeMainAction"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/homeProfile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:id="@+id/homeProfileTop">
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                android:id="@+id/MainHomeVisit"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blueitems"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/home"
+                    android:id="@+id/homeProfileTopBookHome"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:typeface="monospace"
+                    android:text="Book Home Visits"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+
+                    android:layout_below="@+id/homeProfileTopBookHome"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                android:id="@+id/MainBookAppoinment"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/orangeitems"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/appoinment"
+                    android:id="@+id/homeProfileTopBookAppoinment"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:typeface="monospace"
+                    android:layout_marginTop="10dp"
+                    android:text="Book Appoinment"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:layout_below="@+id/homeProfileTopBookAppoinment"/>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/homeProfileTop"
+            android:id="@+id/homeProfileMiddle">
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:padding="5dp"
+                android:id="@+id/MainReports"
+                android:background="@drawable/orangeitems"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/reports"
+                    android:id="@+id/homeProfileMiddleReports"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:typeface="monospace"
+                    android:text="Reports"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/homeProfileMiddleReports"/>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/blueitems"
+                    android:layout_height="0dp"
+                    android:padding="5dp"
+                    android:id="@+id/MainProfile">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/profile"
+                        android:id="@+id/homeProfileProfileImage"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Profile"
+                        android:textSize="13dp"
+                        android:typeface="monospace"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:layout_toRightOf="@+id/homeProfileProfileImage"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/blueitems"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/MainPassword">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/passchang"
+                        android:foregroundGravity="center"
+                        android:id="@+id/homeProfilePasswordImage"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Change Password"
+                        android:textSize="13dp"
+                        android:typeface="monospace"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:layout_toRightOf="@+id/homeProfilePasswordImage"/>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_below="@+id/homeMainAction"
+        android:id="@+id/MainProfileListviewLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/MainListviewText"
+            android:textSize="16dp"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="Up Comming Events"
+            android:textColor="#ffffff"
+            android:typeface="monospace"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/MainUpCommingList"
+            android:dividerHeight="2dp"
+            android:divider="@color/orange1"
+            android:layout_below="@+id/MainListviewText">
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+</RelativeLayout>

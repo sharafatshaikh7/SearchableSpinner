@@ -1,0 +1,375 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/AddHomeVisits"
+    tools:context="com.mylabpatient.Fragments.AddAppoinment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:id="@+id/BookHomeVisitTopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:typeface="monospace"
+                android:text="Patient Appoinment"
+                android:gravity="center"
+                android:background="@color/blue"
+                android:padding="5dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/BookHomeVisitsecondTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/BookHomeVisitTopTitle"
+                android:textSize="15dp"
+                android:padding="2dp"
+                android:typeface="monospace"
+                android:text="Appoinment Can be obtained for 2 week in advance"
+                android:background="@color/blue200"
+                android:textColor="@color/black"/>
+
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitDate"
+                android:layout_below="@+id/BookHomeVisitsecondTitle"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAppoinmentDate"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Date"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/spiAppoinmentDate"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/spinnerbackground"
+                    style="@style/spinner_style"
+                    android:dropDownVerticalOffset="-53dp"
+                    android:spinnerMode="dropdown"
+                    android:drawSelectorOnTop="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitTime"
+                android:layout_below="@+id/BookHomeVisitDate"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAppoinmentime"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Time Slot"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/spiAppoinmentTime"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/spinnerbackground"
+                    style="@style/spinner_style"
+                    android:dropDownVerticalOffset="-53dp"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/Time_Scheduled"
+                    android:drawSelectorOnTop="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitContact"
+                android:layout_below="@+id/BookHomeVisitTime"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAppoinmentContact"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Contact"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtAppoinmentContact"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:layout_height="wrap_content"
+                    android:hint="Cotact"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitArea"
+                android:layout_below="@+id/BookHomeVisitContact"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAppoinmentArea"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Area"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtAppoinmentArea"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Area"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitAddress"
+                android:layout_below="@+id/BookHomeVisitArea"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAppoinmentAddress"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Address"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtAppoinmentAddress"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitRemark"
+                android:layout_below="@+id/BookHomeVisitAddress"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAppoinmentRemark"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Remark"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtAppoinmentRemark"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Remark"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitPrescription"
+                android:layout_below="@+id/BookHomeVisitRemark"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:orientation="vertical"
+                   android:layout_height="match_parent">
+
+                   <TextView
+                       android:id="@+id/txtAppoinmentPrescription"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="15dp"
+                       android:padding="2dp"
+                       android:typeface="monospace"
+                       android:text="Add Prescription"
+                       android:textColor="@color/black"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="15dp"
+                       android:padding="2dp"
+                       android:typeface="monospace"
+                       android:text=".jpg or .pdf only "
+                       android:textColor="@color/black"/>
+
+               </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtAppoinmentPrescriptionName"
+                        android:textColor="@color/colorAccent"
+                        android:typeface="monospace"
+                        android:padding="10dp"
+                        android:text="FileName"/>
+
+                    <Button
+                        android:id="@+id/btnAppoinmentPrescriptionFileName"
+                        android:layout_width="120dp"
+                        android:gravity="center"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="Choose File"
+                        android:textSize="12dp"
+                        android:layout_gravity="center"
+                        android:typeface="monospace"
+                        android:background="@drawable/btncornerblue"
+                        android:layout_height="30dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitPreferLab"
+                android:layout_below="@+id/BookHomeVisitPrescription"
+                android:weightSum="3"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAppoinmentPreferLab"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Preferred Lab"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/spiAppoinmentPreferLab"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/spinnerbackground"
+                    style="@style/spinner_style"
+                    android:dropDownVerticalOffset="-53dp"
+                    android:spinnerMode="dropdown"
+                    android:drawSelectorOnTop="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitPreferSubmit"
+                android:layout_below="@+id/BookHomeVisitPreferLab"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnAppoinmentBook"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/btncornerblue"
+                    android:text="Book"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btnAppoinmentClear"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/btncornerorange"
+                    android:text="Clear"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

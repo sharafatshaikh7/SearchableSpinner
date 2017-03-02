@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    style="@style/Login"
+    tools:context="com.mylabpatient.Register">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:id="@+id/ProfileTopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="25dp"
+                android:typeface="monospace"
+                android:text="Register Now!"
+                android:gravity="center"
+                android:background="@color/blue"
+                android:padding="5dp"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitDate"
+                android:layout_below="@+id/ProfileTopTitle"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtregisterName"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:text="Name"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterName"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitTime"
+                android:layout_below="@+id/BookHomeVisitDate"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterContact"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Contact"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterContact"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact Number"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitContact"
+                android:layout_below="@+id/BookHomeVisitTime"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterEmail"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Email"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterEmail"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitArea"
+                android:layout_below="@+id/BookHomeVisitContact"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterDob"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="DOB"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterDob"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="DOB"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitDob"
+                android:layout_below="@+id/BookHomeVisitArea"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterAge"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Age"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterAge"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Age"
+                    android:inputType="number"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitAddress"
+                android:layout_below="@+id/BookHomeVisitDob"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterGender"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:gravity="center_vertical"
+                    android:typeface="monospace"
+                    android:text="Gender"
+                    android:textColor="@color/black"/>
+
+                <RadioGroup
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:weightSum="3"
+                    android:id="@+id/RegisterGenderRdg"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:id="@+id/rdbRegisterRbdMale"/>
+
+                    <RadioButton
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:id="@+id/rdbRegisterRbdFemail"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ProfileState"
+                android:layout_below="@+id/BookHomeVisitAddress"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtregisterState"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="State"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/spiRegisterState"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/spinnerbackground"
+                    style="@style/spinner_style"
+                    android:dropDownVerticalOffset="-53dp"
+                    android:spinnerMode="dropdown"
+                    android:drawSelectorOnTop="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitRemark"
+                android:layout_below="@+id/ProfileState"
+                android:weightSum="3"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterCity"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="City"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/spiRegisterCity"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/spinnerbackground"
+                    style="@style/spinner_style"
+                    android:dropDownVerticalOffset="-53dp"
+                    android:spinnerMode="dropdown"
+                    android:drawSelectorOnTop="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitPrescription"
+                android:layout_below="@+id/BookHomeVisitRemark"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterArea"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Area"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterArea"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Area"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ProfilePincode"
+                android:layout_below="@+id/BookHomeVisitPrescription"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtRegisterPincode"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Pincode"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterPincode"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Pincode"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:maxLength="6"
+                    android:inputType="number"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ProfileAddress"
+                android:layout_below="@+id/ProfilePincode"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <TextView
+                    android:id="@+id/txtRegisterAdd"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Address"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtRegisterAdd"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:inputType="textMultiLine"
+                    android:layout_height="match_parent"
+                    android:hint="Address"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitPreferSubmit"
+                android:layout_below="@+id/ProfileAddress"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnRegisterLogin"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/btncornerblue"
+                    android:text="Go to Login"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btnRegisterRegister"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/btncornerorange"
+                    android:text="Register"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_reports"
+    style="@style/Login"
+    android:background="@color/gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mylabpatient.Reports">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ReportHeading"
+        android:text="Patient Reports"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:background="@color/orange1"
+        android:textColor="@color/white"
+        android:padding="5dp"
+        android:typeface="monospace"/>
+
+    <LinearLayout
+        android:id="@+id/ReportSelection"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/ReportHeading"
+        android:background="@color/orange1"
+        android:weightSum="6"
+        android:paddingTop="5dp"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/RdgreportTestSelection"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="4.5"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test Wise"
+                android:textSize="15dp"
+                android:typeface="monospace"
+                android:id="@+id/rdbReportTestwise"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date Wise"
+                android:textSize="15dp"
+                android:layout_marginLeft="10dp"
+                android:typeface="monospace"
+                android:id="@+id/rdbReportDatewise"/>
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Search"
+            android:id="@+id/btnReportSearch"
+            android:textColor="@color/black"
+            android:background="@drawable/btncorner"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/ReportSelection">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Reports"
+            android:textSize="20dp"
+            android:id="@+id/ReportNewHeading"
+            android:gravity="center"
+            android:background="@color/orange1"
+            android:textColor="@color/white"
+            android:padding="5dp"
+            android:typeface="monospace" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/testrecyclearview"
+            android:layout_below="@+id/ReportNewHeading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

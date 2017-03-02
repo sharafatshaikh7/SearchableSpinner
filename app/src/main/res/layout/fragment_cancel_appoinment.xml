@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.mylabpatient.Fragments.CancelAppoinment">
+
+
+    <TextView
+        android:id="@+id/CancelAppoinmentHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:padding="5dp"
+        android:shadowColor="#000000"
+        android:textColor="#ffffff"
+        android:typeface="monospace"
+        android:gravity="center"
+        android:background="@color/blue"
+        android:text="Cancel Appoinment" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listviewCancelAppoinment"
+        android:layout_below="@+id/CancelAppoinmentHeading"
+        android:divider="@color/orange1"
+        android:dividerHeight="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>

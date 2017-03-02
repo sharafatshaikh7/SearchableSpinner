@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/Login"
+    tools:context="com.mylabpatient.Profile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:id="@+id/ProfileTopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:typeface="monospace"
+                android:text="Update Your Profile"
+                android:gravity="center"
+                android:background="@color/blue"
+                android:padding="5dp"
+                android:textColor="@color/white"/>
+
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitDate"
+                android:layout_below="@+id/ProfileTopTitle"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileName"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:text="Name"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileName"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitTime"
+                android:layout_below="@+id/BookHomeVisitDate"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileContact"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Contact"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileContact"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:editable="false"
+                    android:clickable="false"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact Number"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitContact"
+                android:layout_below="@+id/BookHomeVisitTime"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileEmail"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Email"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileEmail"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:editable="false"
+                    android:clickable="false"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitArea"
+                android:layout_below="@+id/BookHomeVisitContact"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileDob"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="DOB"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileDob"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="DOB"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitAddress"
+                android:layout_below="@+id/BookHomeVisitArea"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileGender"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:gravity="center_vertical"
+                    android:typeface="monospace"
+                    android:text="Gender"
+                    android:textColor="@color/black"/>
+
+               <RadioGroup
+                   android:layout_weight="2"
+                   android:layout_width="0dp"
+                   android:weightSum="3"
+                   android:id="@+id/ProfileGenderRdg"
+                   android:orientation="horizontal"
+                   android:layout_height="wrap_content">
+
+                   <RadioButton
+                       android:layout_weight="1"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Male"
+                       android:id="@+id/ProfileRbdMale"/>
+
+                   <RadioButton
+                       android:layout_weight="1"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Female"
+                       android:id="@+id/ProfileRbdFemail"/>
+
+               </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitRemark"
+                android:layout_below="@+id/BookHomeVisitAddress"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileCity"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="City"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileCity"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="City"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitPrescription"
+                android:layout_below="@+id/BookHomeVisitRemark"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileArea"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Area"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileArea"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Area"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ProfilePincode"
+                android:layout_below="@+id/BookHomeVisitPrescription"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfilePincode"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Pincode"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfilePincode"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:hint="Pincode"
+                    android:maxLength="6"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ProfileState"
+                android:layout_below="@+id/ProfilePincode"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileState"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="State"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileState"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="State"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ProfileAddress"
+                android:layout_below="@+id/ProfileState"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtProfileAddress"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Address"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/edtProfileAddress"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:typeface="monospace"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BookHomeVisitPreferSubmit"
+                android:layout_below="@+id/ProfileAddress"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnProfileUpdate"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/btncornerblue"
+                    android:text="Update"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
