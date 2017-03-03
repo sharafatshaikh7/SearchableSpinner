@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //m new here
+
         spiCity=(com.toptoche.searchablespinnerlibrary.SearchableSpinner)findViewById(R.id.mainspinner);
 
         String City[]={"Mumbai","Delhi","Bihar","Kolkata"};
