@@ -44,13 +44,18 @@ public class HomeVisits extends AppCompatActivity {
             Log.e(getLocalClassName(),e.getMessage());
         }
 
-        Fragment fragment=new HomeVisitFrag();
+        Fragment fragment=new AddHomeVisitsFrag();
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.homevisitFrameLayout,fragment);
+        //fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
-    }
+//        Fragment fragment=new HomeVisitFrag();
+//        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.add(R.id.homevisitFrameLayout,fragment);
+//        fragmentTransaction.commit();
 
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -76,26 +81,26 @@ public class HomeVisits extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.homevisitsmenu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id=item.getItemId();
-        switch (id){
-            case R.id.addhomevisits:
-                Fragment fragment=new AddHomeVisitsFrag();
-                FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.homevisitFrameLayout,fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        getMenuInflater().inflate(R.menu.homevisitsmenu,menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        int id=item.getItemId();
+//        switch (id){
+//            case R.id.addhomevisits:
+////                Fragment fragment=new AddHomeVisitsFrag();
+////                FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+////                fragmentTransaction.add(R.id.homevisitFrameLayout,fragment);
+////                fragmentTransaction.addToBackStack(null);
+////                fragmentTransaction.commit();
+//                break;
+//        }
+//        return true;
+//    }
 }

@@ -3,6 +3,7 @@ package com.mylabpatient.Adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,10 @@ public class CancelHomeVisitAdapter extends RecyclerView.Adapter<CancelHomeVisit
 
     private Context mCtx;
     private ArrayList<CancelHomeVisit> cancelHomeVisitsList=new ArrayList<>();
+    public static OnItemClickListnerCancelVisit mOnItemClickListnerCancelVisit;
 
 
-    class MyHolder extends RecyclerView.ViewHolder{
+    class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView txtPreferrenceName,txtContact,txtDate,txtTime,txtPreferedLab,txtStatus;
         Button btn_cancelHomeVisit;
         public MyHolder(View itemView) {
@@ -37,7 +39,25 @@ public class CancelHomeVisitAdapter extends RecyclerView.Adapter<CancelHomeVisit
             txtPreferedLab=(TextView)itemView.findViewById(R.id.cancelhomevisitPreferLab);
             txtStatus=(TextView)itemView.findViewById(R.id.cancelhomevisitstatus);
             btn_cancelHomeVisit=(Button)itemView.findViewById(R.id.cancelhomevisitBtnCancel);
+            itemView.setOnClickListener(this);
+            btn_cancelHomeVisit.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == btn_cancelHomeVisit.getId()){
+                Log.e("btn Clicked",String.valueOf(v.getId()));
+                mOnItemClickListnerCancelVisit.onItemClickCancelHomeVisit(itemView,getLayoutPosition());
+            }
+        }
+    }
+
+    public static interface OnItemClickListnerCancelVisit{
+        void onItemClickCancelHomeVisit(View view,int position);
+    }
+
+    public void setOnItemClickListnerCancelVisit(OnItemClickListnerCancelVisit onItemClickListnerCancelVisit){
+        this.mOnItemClickListnerCancelVisit=onItemClickListnerCancelVisit;
     }
 
     public CancelHomeVisitAdapter(Context context,ArrayList<CancelHomeVisit> mylist){

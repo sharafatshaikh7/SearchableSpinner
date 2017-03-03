@@ -5,32 +5,19 @@
     android:background="@color/orange1"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/PasswordDialogTop">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/close2"
-            android:padding="5dp"
-            android:layout_alignParentRight="true"
-            android:id="@+id/testDetailsclosedialog"/>
-    </RelativeLayout>
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtTestReportHeading"
-        android:text="Test Report"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:layout_marginBottom="10dp"
-        android:typeface="monospace"
-        android:textColor="@color/white"
-        android:layout_gravity="center"/>
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/txtTestReportHeading"-->
+        <!--android:text="Test Report"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="20dp"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:typeface="monospace"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:layout_gravity="center"/>-->
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -294,7 +281,6 @@
                     android:textColor="@color/black"/>
 
             </LinearLayout>
-
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

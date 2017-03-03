@@ -1113,4 +1113,112 @@ public class Webservices {
         }
         return null;
     }
+
+    // getting the reason
+    private final String SOAP_reasoncancel="http://tempuri.org/reasoncancel";
+    private final String METHOD_reasoncancel="reasoncancel";
+
+    // getting the reason
+    public SoapObject reasoncancel() {
+
+        SoapObject result=null;
+
+        SoapObject request=new SoapObject(NAMESPACE,METHOD_reasoncancel);
+
+        SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        envelope.dotNet=true;
+
+        HttpTransportSE httpTransportSE=new HttpTransportSE(URL);
+
+        try {
+            httpTransportSE.call(SOAP_reasoncancel,envelope);
+
+            result = (SoapObject) envelope.bodyIn;
+
+            return result;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // Cancel Home Visit
+    private final String SOAP_Cancle_HomeVisit_P="http://tempuri.org/Cancle_HomeVisit_P";
+    private final String METHOD_Cancle_HomeVisit_P="Cancle_HomeVisit_P";
+
+    //cancel Home Visit
+    public SoapObject Cancle_HomeVisit_P(String id,String reason) {
+
+        SoapObject result=null;
+
+        SoapObject request=new SoapObject(NAMESPACE,METHOD_Cancle_HomeVisit_P);
+
+        request.addProperty("ID",id);
+        request.addProperty("Reason",reason);
+
+        SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        envelope.dotNet=true;
+
+        HttpTransportSE httpTransportSE=new HttpTransportSE(URL);
+
+        try {
+            httpTransportSE.call(SOAP_Cancle_HomeVisit_P,envelope);
+
+            result = (SoapObject) envelope.bodyIn;
+
+            return result;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // Cancel Home Visit
+    private final String SOAP_Homevisitcancelmsg="http://tempuri.org/Homevisitcancelmsg";
+    private final String METHOD_Homevisitcancelmsg="Homevisitcancelmsg";
+
+    //cancel Home Visit
+    public SoapObject Homevisitcancelmsg(String AppoinmentId,String contactn,String PAtientName,String Visitdate,
+                                         String VisitTime,String LabName,String LabContact) {
+
+        SoapObject result=null;
+
+        SoapObject request=new SoapObject(NAMESPACE,METHOD_Homevisitcancelmsg);
+
+        request.addProperty("AppointID",AppoinmentId);
+        request.addProperty("contactn",contactn);
+        request.addProperty("PAtientName",PAtientName);
+        request.addProperty("Visitdate",Visitdate);
+        request.addProperty("VisitTime",VisitTime);
+        request.addProperty("LabName",LabName);
+        request.addProperty("LabContact",LabContact);
+
+        SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        envelope.dotNet=true;
+
+        HttpTransportSE httpTransportSE=new HttpTransportSE(URL);
+
+        try {
+            httpTransportSE.call(SOAP_Homevisitcancelmsg,envelope);
+
+            result = (SoapObject) envelope.bodyIn;
+
+            return result;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

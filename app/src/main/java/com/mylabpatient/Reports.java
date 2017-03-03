@@ -22,6 +22,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.mylabpatient.Adapter.DatewiseTestAdapter;
+import com.mylabpatient.Adapter.FinalTestDetailsAdapter;
 import com.mylabpatient.Adapter.TestReportDatetWiseAdapter;
 import com.mylabpatient.Adapter.TestReportTestWiseAdapter;
 import com.mylabpatient.Adapter.TestWiseDateAdapter;
@@ -70,11 +71,7 @@ public class Reports extends AppCompatActivity implements View.OnClickListener,
 
     public static int TestDetailsPosition=-1,DateDetailsPosition=-1;
 
-    //String for SEnding Testwise
-    String SendContactTest2,SendEmailTest2,SendTestId2;
-
-    TextView txtTitle,txttestname,txtnormalvalue,txtmaxvalue,txtminvalue,txtdocname,
-            txtcentername,txtFildValue,txtunit;
+    public static String FinalTestName="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,34 +146,23 @@ public class Reports extends AppCompatActivity implements View.OnClickListener,
 
         TestwiseDateWisedialog.show();
     }
+
     private void FinalTestDetailsDialogMethod() {
         FinalTestDetailsDialog=new Dialog(Reports.this);
-        FinalTestDetailsDialog.setContentView(R.layout.testdetailsdialog);
+        FinalTestDetailsDialog.setContentView(R.layout.finaltestlistview);
         FinalTestDetailsDialog.setCancelable(false);
         FinalTestDetailsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         FinalTestDetailsDialog.setCanceledOnTouchOutside(false);
+        TextView txtTitle=(TextView)FinalTestDetailsDialog.findViewById(R.id.FinaltestListTitle);
+        if(!FinalTestName.toString().equals(""))
+            txtTitle.setText(FinalTestName);
+
+        RecyclerView FinalTestDetailsRecylearView=(RecyclerView)FinalTestDetailsDialog.findViewById(R.id.finalTestRecyclearView);
+        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(Reports.this);
+        FinalTestDetailsRecylearView.setLayoutManager(layoutManager);
+        FinalTestDetailsAdapter finalTestDetailsAdapter=new FinalTestDetailsAdapter(Reports.this,arrayList_FinalTestDetails);
+        FinalTestDetailsRecylearView.setAdapter(finalTestDetailsAdapter);
         ImageView imageView=(ImageView)FinalTestDetailsDialog.findViewById(R.id.testDetailsclosedialog);
-
-        txtTitle=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestReportHeading);
-        txtcentername=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsCenterName);
-        txtdocname=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsdoctoreName);
-        txttestname=(TextView)FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsTestName) ;
-        txtnormalvalue=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsNormalRange);
-        txtmaxvalue=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsMaxRange);
-        txtminvalue=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsMinRange);
-        txtFildValue=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsFild);
-        txtunit=(TextView) FinalTestDetailsDialog.findViewById(R.id.txtTestDetailsResult);
-
-        FinalTestDetailsDataSource finalTestDetailsDataSource=arrayList_FinalTestDetails.get(0);
-        txtTitle.setText(finalTestDetailsDataSource.getTitleName());
-        txtcentername.setText(finalTestDetailsDataSource.getCenterName());
-        txtdocname.setText(finalTestDetailsDataSource.getDocName());
-        txttestname.setText(finalTestDetailsDataSource.getTitleName());
-        txtnormalvalue.setText(finalTestDetailsDataSource.getNormalValue());
-        txtmaxvalue.setText(finalTestDetailsDataSource.getMAxValue());
-        txtminvalue.setText(finalTestDetailsDataSource.getMinValue());
-        txtFildValue.setText(finalTestDetailsDataSource.getFildValue());
-        txtunit.setText(finalTestDetailsDataSource.getTestUnit());
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,7 +187,7 @@ public class Reports extends AppCompatActivity implements View.OnClickListener,
          DateWiserecyclerView.setLayoutManager(layoutManager);
          DatewiseTestAdapter datewiseTestAdapter=new DatewiseTestAdapter(Reports.this,arrayList_DateWiseTest);
          DateWiserecyclerView.setAdapter(datewiseTestAdapter);
-        datewiseTestAdapter.setOnTestClickListner((DatewiseTestAdapter.OnTestClickListner) Reports.this);
+         datewiseTestAdapter.setOnTestClickListner((DatewiseTestAdapter.OnTestClickListner) Reports.this);
          ImageView imageView=(ImageView)DatewiseTestdialog.findViewById(R.id.datewisetestClosedialog);
          imageView.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -211,8 +197,6 @@ public class Reports extends AppCompatActivity implements View.OnClickListener,
          });
          DatewiseTestdialog.show();
      }
-
-
 
     @Override
     public void onClick(View v) {
@@ -246,6 +230,7 @@ public class Reports extends AppCompatActivity implements View.OnClickListener,
         ReportTestWiseDataSource reportTestWiseDataSource=arrayList_ReportTestwise.get(TestDetailsPosition);
         String TestId=reportTestWiseDataSource.getTestId();
         Log.e("TestId",reportTestWiseDataSource.getTestId());
+        FinalTestName=reportTestWiseDataSource.getTestname();
         Log.e("TestName",reportTestWiseDataSource.getTestname());
         String Date=arrayList_TestWiseDate.get(position);
         if(position == -1){
@@ -274,6 +259,7 @@ public class Reports extends AppCompatActivity implements View.OnClickListener,
          DateWiseTestDataSource dateWiseTestDataSource=arrayList_DateWiseTest.get(position);
          String testid=dateWiseTestDataSource.getTestId();
          ReportDateWiseDataSource reportDateWiseDataSource=arrayList_ReportDateWise.get(DateDetailsPosition);
+         FinalTestName=dateWiseTestDataSource.getTestName();
          String Date=reportDateWiseDataSource.getDate();
          if(position == -1){
 
@@ -595,16 +581,15 @@ public class Reports extends AppCompatActivity implements View.OnClickListener,
 
                         arrayList_FinalTestDetails.add(new FinalTestDetailsDataSource(TitleName,FieldNo,NormalValue,MAxValue,MinValue,
                                 DocName,CenterName,FildValue,TestUnit));
-
                     }
                     Log.e("Mhere","mhere");
                     if(count > 0){
                         if(TestwiseDateWisedialog != null && TestwiseDateWisedialog.isShowing()){
                             //dismiss the dialog
-                           // TestwiseDateWisedialog.dismiss();
+                            TestwiseDateWisedialog.dismiss();
                         }else if(DatewiseTestdialog != null && DatewiseTestdialog.isShowing()){
                             //if dailog open close it
-                           // DatewiseTestdialog.dismiss();
+                            DatewiseTestdialog.dismiss();
                         }
                         //show another dialog
                         FinalTestDetailsDialogMethod();

@@ -4,20 +4,20 @@ package com.mylabpatient.Fragments;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.provider.OpenableColumns;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -38,18 +38,10 @@ import com.mylabpatient.WebServices.Webservices;
 
 import org.ksoap2.serialization.SoapObject;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -62,7 +54,7 @@ import static android.app.Activity.RESULT_OK;
 public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener {
 
     EditText edtContact,edtArea,edtAddress,edtRemark;
-    TextView txtFilename;
+    ImageView attachedfile;
     Spinner spiDate,spiTime,spiPreferdLab;
     Button btnBook,btnClear,btnBrowse;
     SweetAlertDialog progressDialog;
@@ -76,6 +68,8 @@ public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener 
     Dialog dialog;
     static final int REQUEST_File_GET = 1;
 
+    Uri imageUri;
+    private static final int TAKE_PICTURE=22;
     //for storing the file name and path
     String displayName,MaxHomeVisitId="",NextId="";
 
@@ -89,6 +83,12 @@ public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener 
 
     public AddHomeVisitsFrag() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -137,7 +137,7 @@ public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener 
         btnClear=(Button)view.findViewById(R.id.btnBookHomeVisitsClear);
         btnBrowse=(Button)view.findViewById(R.id.btnBookHomeVisitsPrescriptionFileName);
 
-        txtFilename=(TextView)view.findViewById(R.id.txtBookHomeVisitsPrescriptionName);
+        attachedfile=(ImageView) view.findViewById(R.id.txtBookHomeVisitsPrescriptionName);
 
         btnBook.setOnClickListener(this);
         btnClear.setOnClickListener(this);
@@ -174,6 +174,14 @@ public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener 
         }
         Log.e("NextId",NextId);
         return NextId;
+    }
+    private void clear(){
+        spiDate.setSelection(0);
+        spiTime.setSelection(0);
+        edtArea.setText("");
+        edtAddress.setText("");
+        edtRemark.setText("");
+        spiPreferdLab.setSelection(0);
     }
 
     private void SendingData(){
@@ -233,158 +241,199 @@ public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener 
             }
         }
     }
-    private void showFileChooser() {
+//    private void showFileChooser() {
+//
+//
+//        dialog=new Dialog(mCtx);
+//        dialog.setContentView(R.layout.filechooserdialog);
+//        dialog.setCancelable(false);
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        dialog.setCanceledOnTouchOutside(false);
+//        ImageView imageView=(ImageView)dialog.findViewById(R.id.filechooserclosedialog);
+//        Button btnpdf=(Button)dialog.findViewById(R.id.btn_pdf_dialog);
+//        Button btnjpg=(Button)dialog.findViewById(R.id.btn_jpg_dialog);
+//
+//        final PackageManager packageManager = mCtx.getPackageManager();
+//
+//        btnpdf.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                dialog.dismiss();
+//
+//                //start the file chooser
+//                Intent intentPDF = new Intent(Intent.ACTION_GET_CONTENT);
+//                intentPDF.setType("application/pdf");
+//                intentPDF.addCategory(Intent.CATEGORY_OPENABLE);
+//
+//                List activitiesPDF = packageManager.queryIntentActivities(intentPDF,
+//                        PackageManager.MATCH_DEFAULT_ONLY);
+//                boolean isIntentSafePDF = activitiesPDF.size() > 0;
+//                if (!isIntentSafePDF){
+//
+//                    // Potentially direct the user to the Market with a Dialog
+//                    progressDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE);
+//                    progressDialog.getProgressHelper().setBarColor(Color.parseColor("#EF6C00"));
+//                    progressDialog.setTitleText("Oops...");
+//                    progressDialog.setContentText("You have No Files!");
+//                    progressDialog.show();
+//
+//                }else{
+//                    startActivityForResult(intentPDF,REQUEST_File_GET);
+//                }
+//
+//            }
+//        });
+//
+//        btnjpg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                //dismiss the dialog
+//                dialog.dismiss();
+//                //start the file chooser
+//                Intent intentJpg = new Intent(Intent.ACTION_GET_CONTENT);
+//                intentJpg.setType("image/jpeg");
+//                intentJpg.addCategory(Intent.CATEGORY_OPENABLE);
+//
+//                List activitiesTxt = packageManager.queryIntentActivities(intentJpg,
+//                        PackageManager.MATCH_DEFAULT_ONLY);
+//                boolean isIntentSafeTxt = activitiesTxt.size() > 0;
+//
+//                if (!isIntentSafeTxt){
+//
+//                    // Potentially direct the user to the Market with a Dialog
+//                    progressDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE);
+//                    progressDialog.getProgressHelper().setBarColor(Color.parseColor("#EF6C00"));
+//                    progressDialog.setTitleText("Oops...");
+//                    progressDialog.setContentText("You have No Files!");
+//                    progressDialog.show();
+//
+//                }else{
+//                    startActivityForResult(intentJpg,REQUEST_File_GET);
+//                }
+//
+//            }
+//        });
+//
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        dialog.show();
+//    }
 
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode == REQUEST_File_GET && resultCode == RESULT_OK){
+//
+//            Uri uri = data.getData();
+//            String uriString = uri.toString();
+//            File myFile = new File(uriString);
+//            String path = myFile.getAbsolutePath();
+//            displayName = null;
+//
+//            //for setting the Name of File on Text View
+//            if (uriString.startsWith("content://")) {
+//                Cursor cursor = null;
+//                try {
+//                    cursor = getActivity().getContentResolver().query(uri, null, null, null, null);
+//                    if (cursor != null && cursor.moveToFirst()) {
+//                        displayName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+//                    }
+//                } finally {
+//                    cursor.close();
+//                }
+//            } else if (uriString.startsWith("file://")) {
+//                displayName = myFile.getName();
+//            }
+//            //setting a file Name
+//            txtFilename.setText(displayName);
+//           // BufferedReader reader = null;
+//            try{
+//                //this is a path where is store after selection
+//                String Copyedpath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PatientMylab";
+//                File dir = new File(Copyedpath);
+//                if(!dir.exists())
+//                    dir.mkdirs();
+//                //this are the path and name in which its store
+//                File file=new File(dir,displayName);
+//
+//                file.createNewFile();
+//                copyFile(new File(path),file);
+//
+//                Log.e("From PAth",String.valueOf(path));
+//                Log.e("To Path",String .valueOf(file));
+//                SendFilePath=String.valueOf(path);
+//            }catch (Exception e){
+//                Log.e(TAG,e.getMessage());
+//            }
+//        }
+//    }
 
-        dialog=new Dialog(mCtx);
-        dialog.setContentView(R.layout.filechooserdialog);
-        dialog.setCancelable(false);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setCanceledOnTouchOutside(false);
-        ImageView imageView=(ImageView)dialog.findViewById(R.id.filechooserclosedialog);
-        Button btnpdf=(Button)dialog.findViewById(R.id.btn_pdf_dialog);
-        Button btnjpg=(Button)dialog.findViewById(R.id.btn_jpg_dialog);
-
-        final PackageManager packageManager = mCtx.getPackageManager();
-
-        btnpdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-
-                //start the file chooser
-                Intent intentPDF = new Intent(Intent.ACTION_GET_CONTENT);
-                intentPDF.setType("application/pdf");
-                intentPDF.addCategory(Intent.CATEGORY_OPENABLE);
-
-                List activitiesPDF = packageManager.queryIntentActivities(intentPDF,
-                        PackageManager.MATCH_DEFAULT_ONLY);
-                boolean isIntentSafePDF = activitiesPDF.size() > 0;
-                if (!isIntentSafePDF){
-
-                    // Potentially direct the user to the Market with a Dialog
-                    progressDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE);
-                    progressDialog.getProgressHelper().setBarColor(Color.parseColor("#EF6C00"));
-                    progressDialog.setTitleText("Oops...");
-                    progressDialog.setContentText("You have No Files!");
-                    progressDialog.show();
-
-                }else{
-                    startActivityForResult(intentPDF,REQUEST_File_GET);
-                }
-
-            }
-        });
-
-        btnjpg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //dismiss the dialog
-                dialog.dismiss();
-                //start the file chooser
-                Intent intentJpg = new Intent(Intent.ACTION_GET_CONTENT);
-                intentJpg.setType("image/jpeg");
-                intentJpg.addCategory(Intent.CATEGORY_OPENABLE);
-
-                List activitiesTxt = packageManager.queryIntentActivities(intentJpg,
-                        PackageManager.MATCH_DEFAULT_ONLY);
-                boolean isIntentSafeTxt = activitiesTxt.size() > 0;
-
-                if (!isIntentSafeTxt){
-
-                    // Potentially direct the user to the Market with a Dialog
-                    progressDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE);
-                    progressDialog.getProgressHelper().setBarColor(Color.parseColor("#EF6C00"));
-                    progressDialog.setTitleText("Oops...");
-                    progressDialog.setContentText("You have No Files!");
-                    progressDialog.show();
-
-                }else{
-                    startActivityForResult(intentJpg,REQUEST_File_GET);
-                }
-
-            }
-        });
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
+    private void takephoto(){
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        File photo = new File(Environment.getExternalStorageDirectory(),  "Pic.jpg");
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT,
+        //        Uri.fromFile(photo));
+        //imageUri = Uri.fromFile(photo);
+        startActivityForResult(intent, TAKE_PICTURE);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_File_GET && resultCode == RESULT_OK){
-
-            Uri uri = data.getData();
-            String uriString = uri.toString();
-            File myFile = new File(uriString);
-            String path = myFile.getAbsolutePath();
-            displayName = null;
-
-            //for setting the Name of File on Text View
-            if (uriString.startsWith("content://")) {
-                Cursor cursor = null;
-                try {
-                    cursor = getActivity().getContentResolver().query(uri, null, null, null, null);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        displayName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                    }
-                } finally {
-                    cursor.close();
-                }
-            } else if (uriString.startsWith("file://")) {
-                displayName = myFile.getName();
-            }
-            //setting a file Name
-            txtFilename.setText(displayName);
-           // BufferedReader reader = null;
-            try{
-                //this is a path where is store after selection
-                String Copyedpath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PatientMylab";
-                File dir = new File(Copyedpath);
-                if(!dir.exists())
-                    dir.mkdirs();
-                //this are the path and name in which its store
-                File file=new File(dir,displayName);
-
-                file.createNewFile();
-                copyFile(new File(path),file);
-
-                Log.e("From PAth",String.valueOf(path));
-                Log.e("To Path",String .valueOf(file));
-                SendFilePath=String.valueOf(path);
-            }catch (Exception e){
-                Log.e(TAG,e.getMessage());
-            }
+        if(requestCode == TAKE_PICTURE && resultCode == RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            attachedfile.setImageBitmap(photo);
         }
     }
 
-    private void copyFile(File sourceFile, File destFile) throws IOException {
-        if (!sourceFile.exists()) {
-            return;
+    //    private void copyFile(File sourceFile, File destFile) throws IOException {
+//        if (!sourceFile.exists()) {
+//            return;
+//        }
+//
+//        FileChannel source = null;
+//        FileChannel destination = null;
+//        source = new FileInputStream(sourceFile).getChannel();
+//        destination = new FileOutputStream(destFile).getChannel();
+//        if (destination != null && source != null) {
+//            destination.transferFrom(source, 0, source.size());
+//        }
+//        if (source != null) {
+//            source.close();
+//        }
+//        if (destination != null) {
+//            destination.close();
+//        }
+//    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.homevisitlist,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.homevisitlist:
+                Fragment fragment=new HomeVisitFrag();
+                FragmentTransaction fragmentTransaction=getActivity().
+                        getSupportFragmentManager().beginTransaction();
+
+                fragmentTransaction.replace(R.id.homevisitFrameLayout,fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
         }
 
-        FileChannel source = null;
-        FileChannel destination = null;
-        source = new FileInputStream(sourceFile).getChannel();
-        destination = new FileOutputStream(destFile).getChannel();
-        if (destination != null && source != null) {
-            destination.transferFrom(source, 0, source.size());
-        }
-        if (source != null) {
-            source.close();
-        }
-        if (destination != null) {
-            destination.close();
-        }
+        return true;
     }
 
     @Override
@@ -402,11 +451,14 @@ public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener 
                 break;
 
             case R.id.btnBookHomeVisitsClear:
+                //for clear the additional data
+                clear();
                 customeToast.CustomeToastSetting(mCtx,"Clear");
                 break;
 
             case R.id.btnBookHomeVisitsPrescriptionFileName:
-                showFileChooser();
+                //showFileChooser();
+                takephoto();
                 break;
 
         }
@@ -597,7 +649,7 @@ public class AddHomeVisitsFrag extends Fragment implements View.OnClickListener 
 //                //after Adding Homevisit Jump on Main List
 //                Fragment fragment=new HomeVisitFrag();
 //                FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
-//                fragmentTransaction.add(R.id.homevisitFrameLayout,fragment);
+//                fragmentTransaction.replace(R.id.homevisitFrameLayout,fragment);
 //                fragmentTransaction.commit();
 
                 if(soapObject == null){

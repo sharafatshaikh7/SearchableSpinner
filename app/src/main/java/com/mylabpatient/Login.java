@@ -344,15 +344,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 if(progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
 
-                //after sedning sms to device forget password dialog hide
-                forgetpassdialog.dismiss();
-                //and visiblae the OTP Dialog
-                OTPDialog();
-
                 if(soapObject == null){
                     Log.e(getLocalClassName(),soapObject.toString());
                 }else{
                     Log.e(getLocalClassName(),soapObject.toString());
+
+                    //after sedning sms to device forget password dialog hide
+                    forgetpassdialog.dismiss();
+                    //and visiblae the OTP Dialog
+                    OTPDialog();
                 }
             }catch (Exception e){
                 e.printStackTrace();

@@ -35,6 +35,8 @@ public class AppoinmentFrag extends Fragment {
         appoinmentPager.add(new CancelAppoinment(),"Cancel Home Visits");
         viewPager.setAdapter(appoinmentPager);
         tabLayout.setupWithViewPager(viewPager);
+        //for setting bedefault 2 tab selected 
+        viewPager.setCurrentItem(1);
 
         return view;
     }
