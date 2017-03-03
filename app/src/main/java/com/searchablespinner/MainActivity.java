@@ -24,6 +24,22 @@ public class MainActivity extends AppCompatActivity {
         spiCity.setAdapter(adapter);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //        ;sfafasf;asfasfsa
 
     }
