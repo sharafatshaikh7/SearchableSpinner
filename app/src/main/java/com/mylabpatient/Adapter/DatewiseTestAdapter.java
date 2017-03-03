@@ -1,50 +1,39 @@
 package com.mylabpatient.Adapter;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mylabpatient.DataSource.DateWiseTestDataSource;
 import com.mylabpatient.DataSource.ReportTestWiseDataSource;
 import com.mylabpatient.R;
-import com.mylabpatient.Reports;
-import com.mylabpatient.WebServices.Webservices;
-
-import org.ksoap2.serialization.SoapObject;
 
 import java.util.ArrayList;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by Sunil on 3/2/2017.
  */
 
-public class TestReportTestWiseAdapter extends RecyclerView.Adapter<TestReportTestWiseAdapter.MyViewHolder>{
+public class DatewiseTestAdapter extends RecyclerView.Adapter<DatewiseTestAdapter.MyViewHolder>{
 
-    ArrayList<ReportTestWiseDataSource> arrayListTestWise=new ArrayList<>();
+    ArrayList<DateWiseTestDataSource> arrayListTestWise=new ArrayList<>();
     Context mCtx;
-    public static OnItemClickListener mOnItemClickListener;
+    public static OnTestClickListner mOnTestClickListner;
 
-    public TestReportTestWiseAdapter(Context context,ArrayList<ReportTestWiseDataSource> mylist){
+    public DatewiseTestAdapter(Context context, ArrayList<DateWiseTestDataSource> mylist){
         this.mCtx=context;
         this.arrayListTestWise=mylist;
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(View view,int position);
+    public interface OnTestClickListner {
+        void onTestClick(View view, int position);
     }
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
-        mOnItemClickListener = onItemClickListener;
+    public void setOnTestClickListner(OnTestClickListner onItemClickListener){
+        mOnTestClickListner = onItemClickListener;
     }
 
     @Override
@@ -58,10 +47,10 @@ public class TestReportTestWiseAdapter extends RecyclerView.Adapter<TestReportTe
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        ReportTestWiseDataSource reportTestWiseDataSource=arrayListTestWise.get(position);
+        DateWiseTestDataSource dateWiseTestDataSource=arrayListTestWise.get(position);
 
-        holder.txttestId.setText(reportTestWiseDataSource.getTestId());
-        holder.txtTestName.setText(reportTestWiseDataSource.getTestname());
+        holder.txttestId.setText(dateWiseTestDataSource.getTestId());
+        holder.txtTestName.setText(dateWiseTestDataSource.getTestName());
     }
 
     @Override
@@ -85,8 +74,8 @@ public class TestReportTestWiseAdapter extends RecyclerView.Adapter<TestReportTe
             Log.e("onClick", String.valueOf(getLayoutPosition())
                     + "\n" + String.valueOf(txtTestName.getText()));
 
-            if(mOnItemClickListener != null ){
-                mOnItemClickListener.onItemClick(itemView,getLayoutPosition());
+            if(mOnTestClickListner != null ){
+                mOnTestClickListner.onTestClick(itemView,getLayoutPosition());
             } else{
                 Log.e("Null","Null");
             }

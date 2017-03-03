@@ -21,10 +21,18 @@ public class TestReportDatetWiseAdapter extends RecyclerView.Adapter<TestReportD
 
     ArrayList<ReportDateWiseDataSource> arrayListDateWise=new ArrayList<>();
     Context mCtx;
+    public static onDateClick monDateClick;
 
     public TestReportDatetWiseAdapter(Context context, ArrayList<ReportDateWiseDataSource> mylist){
         this.mCtx=context;
         this.arrayListDateWise=mylist;
+    }
+
+    public interface onDateClick {
+        void onDateClick(View view,int position);
+    }
+    public void setonDateClick(onDateClick onItemClickListener){
+        monDateClick = onItemClickListener;
     }
 
     @Override
@@ -47,11 +55,24 @@ public class TestReportDatetWiseAdapter extends RecyclerView.Adapter<TestReportD
         return arrayListDateWise.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView txttestDate;
         public MyViewHolder(View itemView) {
             super(itemView);
             txttestDate=(TextView)itemView.findViewById(R.id.txttestDate_DateWise);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.e("onClick", String.valueOf(getLayoutPosition())
+                    + "\n" + String.valueOf(txttestDate.getText()));
+
+            if(monDateClick != null ){
+                monDateClick.onDateClick(itemView,getLayoutPosition());
+            } else{
+                Log.e("Null","Null");
+            }
         }
     }
 }

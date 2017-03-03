@@ -2,6 +2,7 @@ package com.mylabpatient.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,18 @@ public class TestWiseDateAdapter extends RecyclerView.Adapter<TestWiseDateAdapte
 
     ArrayList<String> arraylist=new ArrayList<>();
     Context mCtx;
+    public static OnItemClickListenerTaseWiseDate mOnItemClickListener;
 
     public TestWiseDateAdapter(Context context, ArrayList<String> mylist){
         this.mCtx=context;
         this.arraylist=mylist;
+    }
+
+    public interface OnItemClickListenerTaseWiseDate {
+        void onItemClickTaseWiseDate(View view,int position);
+    }
+    public void setOnItemClickListener(OnItemClickListenerTaseWiseDate onItemClickListener){
+        mOnItemClickListener = onItemClickListener;
     }
 
     @Override
@@ -45,11 +54,21 @@ public class TestWiseDateAdapter extends RecyclerView.Adapter<TestWiseDateAdapte
         return arraylist.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView txttestDate;
         public MyViewHolder(View itemView) {
             super(itemView);
             txttestDate=(TextView)itemView.findViewById(R.id.txttestDate_DateWise);
+
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View v) {
+            if(mOnItemClickListener != null ){
+                mOnItemClickListener.onItemClickTaseWiseDate(itemView,getLayoutPosition());
+            } else{
+                Log.e("Null","Null");
+            }
         }
     }
 }

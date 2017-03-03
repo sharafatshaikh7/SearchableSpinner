@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/orange1"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PasswordDialogTop">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/close2"
+            android:padding="5dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/testDetailsclosedialog"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTestReportHeading"
+        android:text="Test Report"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:typeface="monospace"
+        android:textColor="@color/white"
+        android:layout_gravity="center"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistNameLay"
+                android:weightSum="3"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtTestDetailsCenterName1"
+                    android:layout_weight="1.2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Center Name :"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsCenterName"
+                    android:layout_weight="1.8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Center Name"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistDateLay"
+                android:layout_below="@+id/boohomevisitlistNameLay"
+                android:weightSum="3"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtTestDetailsdoctoreName1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Doctore Name : "
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsdoctoreName"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Doctore Name : "
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistTimeLay"
+                android:layout_below="@+id/boohomevisitlistDateLay"
+                android:weightSum="3"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtTestDetailsTestName1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Test Name : "
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsTestName"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Test Name : "
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistReferNumLay"
+                android:layout_below="@+id/boohomevisitlistTimeLay"
+                android:weightSum="3"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtTestDetailsNormalRange1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:gravity="center_vertical"
+                    android:typeface="monospace"
+                    android:text="Normal Range : "
+
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsNormalRange"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Normal Range "
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistContactLay"
+                android:layout_below="@+id/boohomevisitlistReferNumLay"
+                android:weightSum="4"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtTestDetailsMaxRange1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Max Range:"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsMaxRange"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:typeface="monospace"
+                    android:text="Max Range:"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsMinRange1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:typeface="monospace"
+                    android:text="Min Range:"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsMinRange"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"
+                    android:typeface="monospace"
+                    android:text="Min Range:"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/boohomevisitlistAddressLay"
+                android:layout_below="@+id/boohomevisitlistContactLay"
+                android:weightSum="4"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtTestDetailsFild1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Result: "
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsFild"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Result: "
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsResult1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Unit : "
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtTestDetailsResult"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:text="Unit : "
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

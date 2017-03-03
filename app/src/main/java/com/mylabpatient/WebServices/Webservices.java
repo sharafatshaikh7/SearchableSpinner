@@ -1039,4 +1039,78 @@ public class Webservices {
         }
         return null;
     }
+
+    // Test Details According to Date and TEst Id
+    private final String SOAP_Bind_PatientTestWiseDate="http://tempuri.org/Bind_PatientTestWiseDate";
+    private final String METHOD_Bind_PatientTestWiseDate="Bind_PatientTestWiseDate";
+
+    // Test Details According to Date and TEst Id
+    public SoapObject Bind_PatientTestWiseDate(String contact,String email,String testId,String reportDate) {
+
+        SoapObject result=null;
+
+        SoapObject request=new SoapObject(NAMESPACE,METHOD_Bind_PatientTestWiseDate);
+
+        request.addProperty("contact_no",contact);
+        request.addProperty("EmailId",email);
+        request.addProperty("testId",testId);
+        request.addProperty("reportDate",reportDate);
+
+
+        SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        envelope.dotNet=true;
+
+        HttpTransportSE httpTransportSE=new HttpTransportSE(URL);
+
+        try {
+            httpTransportSE.call(SOAP_Bind_PatientTestWiseDate,envelope);
+
+            result = (SoapObject) envelope.bodyIn;
+
+            return result;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // Test Details click on Date
+    private final String SOAP_Get_PatientTest_date="http://tempuri.org/Get_PatientTest_date";
+    private final String METHOD_Get_PatientTest_datee="Get_PatientTest_date";
+
+    // Test Details click on Date
+    public SoapObject Get_PatientTest_date(String contact,String email,String date) {
+
+        SoapObject result=null;
+
+        SoapObject request=new SoapObject(NAMESPACE,METHOD_Get_PatientTest_datee);
+
+        request.addProperty("contact_no",contact);
+        request.addProperty("email",email);
+        request.addProperty("reportDate",date);
+
+        SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        envelope.dotNet=true;
+
+        HttpTransportSE httpTransportSE=new HttpTransportSE(URL);
+
+        try {
+            httpTransportSE.call(SOAP_Get_PatientTest_date,envelope);
+
+            result = (SoapObject) envelope.bodyIn;
+
+            return result;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
